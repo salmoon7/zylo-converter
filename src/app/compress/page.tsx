@@ -4,7 +4,6 @@ import { useState } from "react";
 import imageCompression from "browser-image-compression";
 import { FaFileImage, FaFileVideo, FaFileArchive } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const Compress = () => {
   const [file, setFile] = useState<File | null>(null);

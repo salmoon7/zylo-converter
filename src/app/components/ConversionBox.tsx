@@ -14,6 +14,8 @@ import { useRouter } from "next/navigation";
 const conversions = [
   {
     title: "Document Conversion",
+    description:
+      "Convert documents between different formats like PDF, Word, and Excel.",
     icon: <FaFilePdf />,
     bg: "bg-primary",
     path: "/convert/document",
@@ -26,6 +28,7 @@ const conversions = [
   },
   {
     title: "Image Conversion",
+    description: "Easily convert images between JPG, PNG, and PDF formats.",
     icon: <FaFileImage />,
     bg: "bg-secondary",
     path: "/convert/image",
@@ -33,11 +36,12 @@ const conversions = [
       { name: "JPG to PNG", path: "/convert/image/jpg-to-png" },
       { name: "PNG to JPG", path: "/convert/image/png-to-jpg" },
       { name: "Image to PDF", path: "/convert/image/image-to-pdf" },
-      { name: "Image to Text (OCR)", path: "/convert/image/image-to-text" },
     ],
   },
   {
     title: "Audio Conversion",
+    description:
+      "Convert audio files to different formats or extract audio from video.",
     icon: <FaMusic />,
     bg: "bg-green",
     path: "/convert/audio",
@@ -45,10 +49,12 @@ const conversions = [
       { name: "MP3 to WAV", path: "/convert/audio/mp3-to-wav" },
       { name: "WAV to MP3", path: "/convert/audio/wav-to-mp3" },
       { name: "Audio to Text", path: "/convert/audio/audio-to-text" },
+      { name: "MP4 to MP3", path: "/convert/audio/mp4-to-mp3" },
     ],
   },
   {
     title: "Video Conversion",
+    description: "Convert videos between different formats or extract audio.",
     icon: <FaVideo />,
     bg: "bg-bay",
     path: "/convert/video",
@@ -60,6 +66,8 @@ const conversions = [
   },
   {
     title: "Archive Conversion",
+    description:
+      "Convert compressed files like ZIP, RAR, and 7z to different formats.",
     icon: <FaArchive />,
     bg: "bg-red",
     path: "/convert/archive",
@@ -71,6 +79,7 @@ const conversions = [
   },
   {
     title: "Code & Data Conversion",
+    description: "Convert structured data between JSON, CSV, and XML formats.",
     icon: <FaCode />,
     bg: "bg-primary",
     path: "/convert/code",
@@ -108,6 +117,8 @@ const FileConversion = () => {
                 }`}
               />
             </h3>
+            <p className="text-sm mt-2">{conversion.description}</p>
+            <p className="text-xs mt-1 opacity-80">Click the arrow to expand</p>
 
             {openIndex === index && (
               <ul className="mt-4 space-y-2 bg-white text-gray-900 p-4 rounded-lg w-full">

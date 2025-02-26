@@ -1,8 +1,9 @@
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import Footer from "./components/Footer";
+
 import ConversionBox from "./components/ConversionBox";
 import CompressionBox from "./components/CompressionBox";
+import FAQSection from "./components/FaqSection";
+import WhatComing from "./components/FuturePlan";
 
 function App() {
   return (
@@ -10,6 +11,8 @@ function App() {
       <Hero />
       <ConversionBox />
       <CompressionBox />
+      <FAQSection />
+      <WhatComing />
     </div>
   );
 }

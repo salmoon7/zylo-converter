@@ -1,46 +1,47 @@
 "use client";
 
 import { useState } from "react";
-import { FaFilePdf, FaFileWord } from "react-icons/fa";
+import { FaMicrophone } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-const PdfToWord = () => {
+const AudioToText = () => {
   const [file, setFile] = useState<File | null>(null);
   const [loading, setLoading] = useState(false);
-  const [convertedFile, setConvertedFile] = useState<string | null>(null);
+  const [transcribedText, setTranscribedText] = useState<string | null>(null);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
       const uploadedFile = event.target.files[0];
-      if (uploadedFile.type === "application/pdf") {
+      if (uploadedFile.type.startsWith("audio/")) {
         setFile(uploadedFile);
       } else {
-        alert("Please upload a valid PDF file.");
+        alert("Only audio files are allowed.");
       }
     }
   };
 
-  const handleConversion = async () => {
+  const handleTranscription = async () => {
     if (!file) return;
     setLoading(true);
 
     // Placeholder for backend API request
     setTimeout(() => {
-      setConvertedFile(URL.createObjectURL(file)); // Mock converted file
+      setTranscribedText(
+        "This is a sample transcribed text from the audio file."
+      ); // Mock transcription
       setLoading(false);
-    }, 2000);
+    }, 3000);
   };
 
   return (
     <section className="min-h-screen bg-gray-100 py-16 px-6 text-gray-900 flex flex-col items-center">
-      {/* Header Section */}
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         className="text-4xl md:text-5xl font-bold text-center text-primary mb-10"
       >
-        PDF to Word Converter
+        Audio to Text Converter
       </motion.h2>
 
       <motion.p
@@ -49,25 +50,24 @@ const PdfToWord = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="text-lg text-gray-700 text-center max-w-2xl mb-8"
       >
-        Easily convert your PDF documents to editable Word files in just a few
-        clicks.
+        Convert your audio files into text quickly and easily.
       </motion.p>
 
-      {/* Conversion Box */}
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
         className="w-full max-w-2xl bg-white p-8 rounded-xl shadow-lg text-center"
       >
-        {/* File Upload */}
         <label className="cursor-pointer flex flex-col items-center space-y-2 border border-gray-300 p-4 rounded-lg hover:bg-gray-50">
-          <FaFilePdf className="text-4xl text-primary" />
-          <span className="text-gray-600 text-sm">Click to Upload PDF</span>
+          <FaMicrophone className="text-4xl text-primary" />
+          <span className="text-gray-600 text-sm">
+            Click to Upload Audio File
+          </span>
           <input
             type="file"
             className="hidden"
-            accept="application/pdf"
+            accept="audio/*"
             onChange={handleFileUpload}
           />
         </label>
@@ -78,26 +78,20 @@ const PdfToWord = () => {
           </div>
         )}
 
-        {/* Convert Button */}
         <button
-          onClick={handleConversion}
+          onClick={handleTranscription}
           disabled={!file || loading}
           className="mt-6 bg-primary text-white py-2 px-6 rounded-lg shadow-md hover:bg-primary-dark transition disabled:opacity-50"
         >
-          {loading ? "Converting..." : "Convert to Word"}
+          {loading ? "Transcribing..." : "Convert to Text"}
         </button>
 
-        {/* Conversion Results */}
-        {convertedFile && (
+        {transcribedText && (
           <div className="mt-6 p-4 border border-green-400 bg-green-50 rounded-lg">
-            <p className="text-green-600 font-bold">Conversion Successful!</p>
-            <a
-              href={convertedFile}
-              download="converted-file.docx"
-              className="text-blue-600 text-sm underline mt-2 inline-block"
-            >
-              Download Word File
-            </a>
+            <p className="text-green-600 font-bold">
+              Transcription Successful!
+            </p>
+            <p className="text-gray-800 text-sm mt-2">{transcribedText}</p>
           </div>
         )}
       </motion.div>
@@ -105,4 +99,4 @@ const PdfToWord = () => {
   );
 };
 
-export default PdfToWord;
+export default AudioToText;

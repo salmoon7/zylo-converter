@@ -1,14 +1,12 @@
 "use client";
 import { useState } from "react";
-import { FaFileImage, FaFileVideo, FaFileArchive } from "react-icons/fa";
+
 import * as imageCompression from "browser-image-compression";
-import { useRouter } from "next/navigation";
 
 const CompressionBox = () => {
   const [file, setFile] = useState<File | null>(null);
   const [compressedFile, setCompressedFile] = useState<Blob | null>(null);
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const uploadedFile = event.target.files?.[0];

@@ -67,7 +67,7 @@ const About = () => {
           Future Roadmap
         </h2>
         <p className="text-gray-700">
-          We're working on adding more formats, AI-powered compression, and
+          We are working on adding more formats, AI-powered compression, and
           real-time collaboration features.
         </p>
       </div>
@@ -79,7 +79,7 @@ const About = () => {
         </h2>
         <p className="text-gray-700">
           Have questions or feedback? Reach out to us at{" "}
-          <span className="font-semibold">support@zyloconvert.com</span>
+          <span className="font-semibold">support&at;zyloconvert.com</span>
         </p>
       </div>
     </section>
@@ -88,9 +88,14 @@ const About = () => {
 
 // 🧑‍💻 Team Members (You can replace with actual images and names)
 const teamMembers = [
-  { name: "John Doe", role: "Frontend Developer", image: "/team1.jpg" },
-  { name: "Jane Smith", role: "Backend Developer", image: "/team2.jpg" },
-  { name: "Alice Johnson", role: "UI/UX Designer", image: "/team3.jpg" },
+  { name: "BabaT", role: "Backend Developer", image: "/hero-image.webp" },
+  { name: "Salmoon", role: "Frontend Developer", image: "/hero-image.webp" },
+  { name: "Biodun dev", role: "Senior developer", image: "/hero-image.webp" },
+  {
+    name: "Himaya Dev",
+    role: "Full-Stack developer",
+    image: "/hero-image.webp",
+  },
 ];
 
 export default About;

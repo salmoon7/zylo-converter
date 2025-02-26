@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-md fixed w-full z-50">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold text-gray-800">
+        <Link href="/" className="text-2xl font-bold text-primary">
           Zylo Converter.
         </Link>
 
@@ -32,7 +32,11 @@ export default function Navbar() {
           className="md:hidden text-gray-800"
           onClick={() => setMenuOpen(!menuOpen)}
         >
-          {menuOpen ? <X size={28} /> : <Menu size={28} />}
+          {menuOpen ? (
+            <X size={28} color="#3c096c" />
+          ) : (
+            <Menu size={28} color="#3c096c" />
+          )}
         </button>
       </div>
 

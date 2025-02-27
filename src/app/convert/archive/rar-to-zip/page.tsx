@@ -33,7 +33,18 @@ const RarToZip = () => {
       const zipUrl = URL.createObjectURL(zipBlob);
       setConvertedFile(zipUrl);
     } catch (error) {
-      alert("Conversion failed. Ensure your RAR file is valid.");
+      let errorMessage = "Conversion failed. Ensure your RAR file is valid.";
+
+      // Narrowing down the error type
+      if (error instanceof Error) {
+        errorMessage += ` Error details: ${error.message}`;
+      } else if (typeof error === "string") {
+        errorMessage += ` Error details: ${error}`;
+      } else {
+        errorMessage += " An unknown error occurred.";
+      }
+
+      alert(errorMessage);
     }
 
     setLoading(false);

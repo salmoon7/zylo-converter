@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaFileExcel, FaFilePdf } from "react-icons/fa";
+import { FaFilePdf } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const PdfToExcel = () => {

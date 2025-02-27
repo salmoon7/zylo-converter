@@ -18,6 +18,17 @@ const CsvToJson = () => {
       const result = Papa.parse(csvInput, { header: true });
       setJsonOutput(JSON.stringify(result.data, null, 2));
     } catch (error) {
+      let errorMessage = "Conversion failed. Ensure your RAR file is valid.";
+
+      if (error instanceof Error) {
+        errorMessage += ` Error details: ${error.message}`;
+      } else if (typeof error === "string") {
+        errorMessage += ` Error details: ${error}`;
+      } else {
+        errorMessage += " An unknown error occurred.";
+      }
+
+      alert(errorMessage);
       setJsonOutput("Invalid CSV format. Please check your input.");
     }
 

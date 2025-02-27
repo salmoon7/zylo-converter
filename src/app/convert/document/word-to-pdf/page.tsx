@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaFileWord, FaFilePdf } from "react-icons/fa";
+import { FaFileWord } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const WordToPdf = () => {
@@ -49,7 +49,18 @@ const WordToPdf = () => {
       const data = await response.json();
       setConvertedFile(data.downloadUrl);
     } catch (error) {
-      setError("Conversion failed. Please try again.");
+      let errorMessage = "Conversion failed, Try again.";
+
+      // Narrowing down the error type
+      if (error instanceof Error) {
+        errorMessage += ` Error details: ${error.message}`;
+      } else if (typeof error === "string") {
+        errorMessage += ` Error details: ${error}`;
+      } else {
+        errorMessage += " An unknown error occurred.";
+      }
+
+      alert(errorMessage);
     } finally {
       setLoading(false);
     }

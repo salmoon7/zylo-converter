@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaFileImage, FaFilePdf } from "react-icons/fa";
+import { FaFileImage } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const ImageToPDF = () => {

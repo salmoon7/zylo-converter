@@ -53,10 +53,10 @@ const WhatsComing = () => {
   return (
     <section className="py-16 px-6 bg-gray-100 text-gray-900 font-body">
       <div className="max-w-3xl mx-auto text-center mb-12">
-        <h2 className="text-4xl font-bold mb-4">What's Coming</h2>
+        <h2 className="text-4xl font-bold mb-4">What&apos;s Coming</h2>
         <p className="text-lg text-gray-700">
-          Explore the upcoming AI-powered features we're developing to enhance
-          your experience with Zylo Convert.
+          Explore the upcoming AI-powered features we&apos;re developing to
+          enhance your experience with Zylo Convert.
         </p>
       </div>
       <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

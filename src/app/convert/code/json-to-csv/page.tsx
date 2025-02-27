@@ -33,7 +33,18 @@ const JsonToCsv = () => {
       const blob = new Blob([csv], { type: "text/csv" });
       setCsvFile(URL.createObjectURL(blob));
     } catch (error) {
-      alert("Invalid JSON format.");
+      let errorMessage = "Invalid JSON format.";
+
+      // Narrowing down the error type
+      if (error instanceof Error) {
+        errorMessage += ` Error details: ${error.message}`;
+      } else if (typeof error === "string") {
+        errorMessage += ` Error details: ${error}`;
+      } else {
+        errorMessage += " An unknown error occurred.";
+      }
+
+      alert(errorMessage);
     }
 
     setLoading(false);

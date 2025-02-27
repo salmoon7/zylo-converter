@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { motion } from "framer-motion";
 
 const ContactPage = () => {
@@ -11,7 +11,9 @@ const ContactPage = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -32,8 +34,8 @@ const ContactPage = () => {
           Contact Us
         </h2>
         <p className="text-gray-600 mb-8">
-          Have questions or need assistance? Fill out the form below, and we’ll
-          get back to you as soon as possible.
+          Have questions or need assistance? Fill out the form below, and we
+          will get back to you as soon as possible.
         </p>
       </div>
 

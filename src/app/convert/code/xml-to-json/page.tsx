@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { FaCode } from "react-icons/fa";
+
 import { motion } from "framer-motion";
 import xml2js from "xml2js";
 

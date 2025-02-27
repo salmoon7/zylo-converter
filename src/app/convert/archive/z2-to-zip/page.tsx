@@ -38,7 +38,18 @@ const SevenZToZip = () => {
       const zipUrl = URL.createObjectURL(blob);
       setConvertedFile(zipUrl);
     } catch (error) {
-      alert("Conversion failed. Ensure your 7Z file is valid.");
+      let errorMessage = "Conversion failed. Ensure your 7Z file is valid.";
+
+      // Narrowing down the error type
+      if (error instanceof Error) {
+        errorMessage += ` Error details: ${error.message}`;
+      } else if (typeof error === "string") {
+        errorMessage += ` Error details: ${error}`;
+      } else {
+        errorMessage += " An unknown error occurred.";
+      }
+
+      alert(errorMessage);
     }
 
     setLoading(false);

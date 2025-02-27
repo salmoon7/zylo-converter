@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import { motion } from "framer-motion";
 
 const ContactPage = () => {
@@ -11,10 +11,11 @@ const ContactPage = () => {
 
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e: { target: { name: any; value: any } }) => {
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.message) return;

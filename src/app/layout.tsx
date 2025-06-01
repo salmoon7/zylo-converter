@@ -8,26 +8,30 @@ import Footer from "./components/Footer";
 const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
+  display: "swap", // ADD this
 });
 
 const roboto = Roboto({
   subsets: ["latin"],
   variable: "--font-roboto",
-  weight: "100",
+  weight: ["100", "400", "700"], // BETTER: use array for flexibility
+  display: "swap", // ADD this
 });
 
 const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
+  display: "swap", // ADD this
 });
 
 const lato = Lato({
   subsets: ["latin"],
   variable: "--font-lato",
-  weight: "100",
+  weight: ["100", "400", "700"], // USE ARRAY not just "100"
+  display: "swap", // ADD this
 });
 
-// Metadata for Zylo Convert
+// Metadata
 export const metadata: Metadata = {
   title: "Zylo Convert - Fast & Free File Conversions",
   description:
@@ -36,9 +40,9 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body

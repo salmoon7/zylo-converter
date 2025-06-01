@@ -24,6 +24,7 @@ const conversions = [
       { name: "Word to PDF", path: "/convert/document/word-to-pdf" },
       { name: "PDF to Excel", path: "/convert/document/pdf-to-excel" },
       { name: "PDF to Image", path: "/convert/document/pdf-to-image" },
+      { name: "EBOOK to Pdf", path: "/convert/document/ebook-to-pdf" },
     ],
   },
   {
